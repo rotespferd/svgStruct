@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SVGStruct</title>
+	<meta charset="utf-8">
+    <script type="text/javascript" src="js/raphael-min.js"></script>
+	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="js/struct.js"></script>	
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/ace/ace.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/screen.css">
+</head>
+<body>
+	<div class="header">
+    	<h1>SVG Struct</h1>
+	</div>
+	<div class="container">
+		<div class="code">
+			<p>Write your JSON-Struct here: </p>
+			<div class="edit-area">
+				<div id="editor">{
+    "content":[
+		{
+        	"type":"block",
+        	"content": "bla"
+    	},
+		{
+			"type": "while",
+			"condition": "true",
+			"content": "bla"
+		},
+		{
+			"type":"if",
+			"condition":"x < 23",
+			"true": {"type": "block", "content": "x=23"},
+			"false": {"type": "block", "content": "x=23"}
+			
+		},
+		{
+		            "type":"switch",
+		            "condition": "x",
+		            "cases": 
+		                [
+		                    {
+		                      "case": "1",
+		                      "content": "test"
+		                    },
+		                    {
+		                      "case": "2",
+		                      "content": "test"
+		                    },
+		                    {
+		                      "case": "3",
+		                      "content": "test"
+		                    },
+		                    {
+		                      "case": "default",
+		                      "content": "test"
+		                    }
+		                ]
+		        }
+	],
+    "type":"root",
+	"description": "a simple program",
+	"author": "thampe"
+}
+				</div>
+			</div>
+			<button id="draw" class="btn">draw struct</button>
+		</div>	
+		<div id="svg" class="text inner-shadow">palaber</div>
+	</div>
+		<div class="footer"> powered by <a herf="">Raphael JS</a> and <a herf="">ACE</div>
+</body>
+</html>

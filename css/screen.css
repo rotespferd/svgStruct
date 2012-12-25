@@ -1,0 +1,59 @@
+#input{
+	clear: both;
+	padding: 10px;
+}
+
+
+
+#draw{
+	display: block;
+}
+
+button.close{
+	float: left;
+}
+
+#editor { 
+	width: 600px;
+	height: 600px;
+}
+	
+.edit-area{
+	width: 600px;
+	height: 605px;
+}
+
+.code{
+	width: 600px;
+	margin-bottom: 20px;
+}
+
+.header{
+	background-color: #e8e8e8;
+	height: 60px;
+	margin-bottom: 30px;
+	padding: 0 30px;
+	
+	
+}
+.header h1 {
+	margin:0;
+	line-height: 60px;
+	color: #DF0002;
+	font-weight: normal;
+}
+
+a, a:hover{
+	color: #DF0002;
+}
+
+a:visited{
+	color: black;
+}
+
+.footer {
+	background-color: #e8e8e8;
+	text-align: center;
+	padding: 5px 0;
+}
+	
