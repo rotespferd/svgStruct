@@ -3,23 +3,17 @@
 	padding: 10px;
 }
 
-
-
-#draw{
-	display: block;
-}
-
 button.close{
 	float: left;
 }
 
 #editor { 
-	width: 600px;
+	width: 940px;
 	height: 600px;
 }
 	
 .edit-area{
-	width: 600px;
+	width: 940px;
 	height: 605px;
 }
 
@@ -43,12 +37,8 @@ button.close{
 	font-weight: normal;
 }
 
-a, a:hover{
+a, a:hover,a:visited,a:hover#draw{
 	color: #DF0002;
-}
-
-a:visited{
-	color: black;
 }
 
 .footer {

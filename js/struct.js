@@ -54,8 +54,6 @@ function svgs_draw(object) {
 		case "block":
 			svgs_object = new SVGS_BLOCK(object);
 			break;
-		default:
-			console.log("Shit happens");
 			
 	}
 	if(object.content instanceof Array){
@@ -121,12 +119,16 @@ function evaluate_sizes(object) {
 	
 	if(object.type === "if"){
 		
-		
+		if(typeof(object.true) === "string" || object.true instanceof Array){
+			var tmp = object.true;
+			object.true = {"type":"block", "content":tmp};
+		}
+		if(typeof(object.false) === "string" || object.false instanceof Array){
+			var tmp = object.false;
+			object.false = {"type":"block", "content":tmp};
+		}
 		
 		var ifSize = {"true": evaluate_sizes(object.true), "false":evaluate_sizes(object.false)};
-		
-		
-		
 		var trueHeight = ifSize.true.height*1;
 		var trueLength = ifSize.true.length*1;
 		
@@ -152,6 +154,9 @@ function evaluate_sizes(object) {
 		
 		height += EXTRA_HEIGHT_SWITCH; 
 	}
+	if(object.content instanceof Object && !(object.content instanceof Array)){
+		object.content = [object.content];
+	}
 	
 	if(object.content instanceof Array){
 		for(var i = 0; i < object.content.length; i++){
@@ -165,8 +170,6 @@ function evaluate_sizes(object) {
 		height = MIN_HEIGHT_IF;
 		length = MIN_WIDTH_IF;
 		
-	}else{
-		console.log("Fuck You");
 	}
 	
 	if(object.type === "while" || object.type === "dowhile" || object.type === "for"){
@@ -357,12 +360,6 @@ function SVGS_IF(object){
 
 	//text
 	this.condition = (typeof object.condition === "string") ? object.condition : "true";
-	if(typeof object.true === "string" ) {
-		this.true = object.true;
-	}	
-	if(typeof object.false === "string" ) {
-		this.false = object.false;
-	}
 	this.draw = function (){
 		var rect = paper.rect(this.x,this.y,this.length,this.height);
 		var pathHorizontal = paper.path("M"+this.x+","+(this.y+EXTRA_HEIGHT_IF)+"H"+(this.length + this.x));
@@ -409,7 +406,6 @@ function SVGS_SWITCH(object){
 		//cases
 		var switchLength = this.length-defaultLength;
 		var factor = (EXTRA_HEIGHT_SWITCH - 20)/switchLength;
-		console.log(factor);
 		for(var j = 0; j < this.cases.length; j++) {
 			var caseObject = this.cases[j];
 			length += caseObject.length*1;
