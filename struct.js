@@ -54,8 +54,6 @@ function svgs_draw(object) {
 		case "block":
 			svgs_object = new SVGS_BLOCK(object);
 			break;
-		default:
-			console.log("Shit happens");
 			
 	}
 	if(object.content instanceof Array){
@@ -165,8 +163,6 @@ function evaluate_sizes(object) {
 		height = MIN_HEIGHT_IF;
 		length = MIN_WIDTH_IF;
 		
-	}else{
-		console.log("Fuck You");
 	}
 	
 	if(object.type === "while" || object.type === "dowhile" || object.type === "for"){
@@ -409,7 +405,6 @@ function SVGS_SWITCH(object){
 		//cases
 		var switchLength = this.length-defaultLength;
 		var factor = (EXTRA_HEIGHT_SWITCH - 20)/switchLength;
-		console.log(factor);
 		for(var j = 0; j < this.cases.length; j++) {
 			var caseObject = this.cases[j];
 			length += caseObject.length*1;
